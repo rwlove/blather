@@ -2,8 +2,6 @@
 
 BUILD_ROOT=${PWD}
 
-. settings.conf
-
 [ ! -d logs ] && mkdir logs/
 [ ! -f logs/blather.log ] && touch logs/blather.log
 
