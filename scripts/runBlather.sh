@@ -6,6 +6,6 @@ echo "Updating Language Files" >> /blather.log
 
 echo "Starting Blather" >> /blather.log
 
-python Blather.py -c -m 1 2>&1 | tee /blather.log
+python Blather.py -c -m 2 2>&1 | tee /blather.log
 
 echo "Blather Exited with return code: '$?'" >> /blather.log
