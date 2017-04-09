@@ -24,3 +24,5 @@ echo "The topic is: ${TOPIC}, the message is: ${COMMAND}"
 
 mqtt-cli mosca "${TOPIC}" "${COMMAND}"
 
+err=$?
+[ 0 -ne $err ] && echo "mqtt-cli failed with error: $err"
