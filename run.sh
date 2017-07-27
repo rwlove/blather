@@ -16,5 +16,3 @@ docker run \
        -h blather \
        --restart=always \
        services/blather /usr/local/bin/runBlather.sh
-#       -v ${BUILD_ROOT}/config/lm:/root/.config/blather/language/lm \
-#       -v ${BUILD_ROOT}/config/dic:/root/.config/blather/language/dic \
