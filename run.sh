@@ -6,7 +6,6 @@ BUILD_ROOT=${PWD}
 [ ! -f logs/blather.log ] && touch logs/blather.log
 
 MODE=d #default is daemon
-CMD=/usr/local/bin/blather_entrypoint.sh
 
 while getopts ":i" opt; do
     case $opt in
