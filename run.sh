@@ -23,7 +23,7 @@ done
 docker run \
        --privileged \
        -t${MODE} \
-       --network docker_test_network \
+       --network="host" \
        -v /etc/localtime:/etc/localtime:ro \
        -v /dev/snd:/dev/snd \
        -v ${BUILD_ROOT}/logs/blather.log:/blather.log \
