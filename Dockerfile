@@ -48,12 +48,12 @@ COPY config/sentences.corpus /root/.config/blather/sentences.corpus
 COPY config/lm /root/.config/blather/language/lm
 COPY config/dic /root/.config/blather/language/dic
 
-COPY scripts/runBlather.sh /usr/bin/runBlather.sh
+COPY scripts/blather_entrypoint.sh /usr/local/bin/blather_entrypoint.sh
 COPY scripts/hue_change_color.sh /usr/local/bin/hue_change_color.sh
 COPY scripts/alarmclock_mqtt_event.sh /usr/local/bin/alarmclock_mqtt_event.sh
 COPY scripts/roomba_mqtt_event.sh /usr/local/bin/roomba_mqtt_event.sh
 
-CMD [ '/usr/bin/runBlather.sh' ]
+CMD [ '/usr/local/bin/blather_entrypoint.sh' ]
 
 RUN apt-get -y clean && \
 rm -rf /var/lib/apt/lists/* && \
