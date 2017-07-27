@@ -7,8 +7,6 @@ FROM ubuntu:15.10
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN  echo 'Acquire::http { Proxy "http://apt-cache-proxy:3142"; };' >> /etc/apt/apt.conf.d/01proxy
-
 RUN apt-get -y update && \
 apt-get -y dist-upgrade
 
