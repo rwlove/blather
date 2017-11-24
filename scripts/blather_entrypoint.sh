@@ -1,17 +1,28 @@
 #!/bin/bash
 
-echo "Determining Audio Device" >> /blather.log
-echo "- searching for 'CODEC [USB audio CODEC]'" >> /blather.log
+# Close STDOUT file descriptor
+exec 1<&-
+# Close STDERR FD
+exec 2<&-
+
+# Open STDOUT as $LOG_FILE file for read and write.
+exec 1<>/blather.log
+
+# Redirect STDERR to STDOUT
+exec 2>&1
+
+echo "Determining Audio Device"
+echo "- searching for 'CODEC [USB audio CODEC]'"
 arecord -l
 DEV=`arecord -l | grep "CODEC \[USB audio CODEC\]" | cut -d ":" -f -1 | cut -d " " -f 2`
-echo "Audio Device Number is: ${DEV}" >> /blather.log
+echo "Audio Device Number is: ${DEV}"
 
-echo "Updating Language Files" >> /blather.log
+echo "Updating Language Files"
 
-/blather/language_updater.sh 2>&1 | tee -a /blather.log
+/blather/language_updater.sh
 
-echo "Starting Blather" >> /blather.log
+echo "Starting Blather"
 
-python Blather.py -c -m ${DEV} 2>&1 | tee -a /blather.log
+python Blather.py -c -m ${DEV}
 
-echo "Blather Exited with return code: '$?'" >> /blather.log
+echo "Blather Exited with return code: '$?'"
